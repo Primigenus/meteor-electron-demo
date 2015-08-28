@@ -1,0 +1,56 @@
+<head>
+  <title>test-electron</title>
+</head>
+
+<template name="window">
+  {{> Template.dynamic template=name}}
+</template>
+
+<template name="friendList">
+  <div id="friendList" class="window">
+    <header><h1>
+      <span>Meteor Chat</span>
+      <span>{{> loginButtons align="right"}} <button>&times;</button></span>
+    </h1></header>
+    <main>
+      {{#if friend}}
+        <ul>
+          {{#each friend}}
+          <li>
+            <span>{{username}}</span>
+            <span class="last-message">{{lastMessage}} {{lastMessageDate}}</span>
+          </li>
+          {{/each}}
+        </ul>
+      {{/if}}
+    </main>
+  </div>
+</template>
+
+<template name="messageWindow">
+  <div id="messageWindow" class="window">
+    <header>Chat with <b>{{friendName}}</b></header>
+    <!-- <div class="toolbar">...</div> -->
+    <main class="messages">
+      <ul>
+      {{#each message}}
+        <li><b>{{username}}:</b> {{text}}</li>
+      {{else}}
+        <p class="no-messages">
+          Message history is empty!
+        </p>
+      {{/each}}
+      </ul>
+    </main>
+    <footer>
+      <input type="text">
+    </footer>
+  </div>
+</template>
+
+<template name="landingPage">
+  <div id="landingPage">
+    <h1>Welcome! Download:</h1>
+    <button>Get Meteor Chat</button>
+  </div>
+</template>

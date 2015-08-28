@@ -1,0 +1,8 @@
+{
+  "electron": {
+    "height": 700,
+    "width": 400,
+    "frame": true,
+    "resizable": true
+  }
+}
